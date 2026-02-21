@@ -14,7 +14,6 @@ lora:
   lora_freeze: False # lora head
   router_freeze: False # router
   sparsegen_init: "kaiming" # Options: "kaiming", "dense" (λ≈0, many adapters), "sparse" (λ≈1, few adapters), "zeros"
-  use_abs: False # allow sparsegen z to be negative
   r: 8
   lora_alpha: 16
   lora_dropout: 0.1
@@ -35,16 +34,3 @@ lora:
     enabled: True
     input_sizes: [1024, 2048, 3072]
     hidden_sizes: 128
-
-# Add the following lines to specify the each "muti" pretrained LoRA paths
-pretrained_multi_lora_paths: ???
-cpkt_path: ???
-
-# Quantization configurations
-apply_quantization: False # Not working yet so stay False for now
-quantization:
-  quantization_config:
-    load_in_4bit: True
-    bnb_4bit_compute_dtype: "bfloat16"
-    bnb_4bit_quant_type: "nf4"
-    bnb_4bit_use_double_quant: True

@@ -35,7 +35,3 @@ lora:
     enabled: True
     input_sizes: [4096, 14336]
     hidden_sizes: 512
-
-# Add the following lines to specify the each "muti" pretrained LoRA paths
-pretrained_multi_lora_paths: ???
-cpkt_path: ???

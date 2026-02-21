@@ -41,8 +41,20 @@ source .venv/bin/activate
 uv pip install -r requirements.txt
 ```
 
-## 5 Training
+# Datasets
+## [ARC](https://huggingface.co/datasets/allenai/ai2_arc)
+## [CommonsenseQA](https://huggingface.co/datasets/tau/commonsense_qa)
+## [OpenbookQA](https://huggingface.co/datasets/allenai/openbookqa)
+## [HellaSwag](https://huggingface.co/datasets/Rowan/hellaswag)
+## [Swag](https://huggingface.co/datasets/allenai/swag)
+## [MMLUPro](https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro)
+## [GLUE](https://huggingface.co/datasets/nyu-mll/glue/)
 
+# Training
+1. To switch between datasets, change `dataset` and `task` in [run.sh](run.sh). For mrpc and rte use "glue" for dataset and same as task otherwise, e.g. "arc_c", "mmlu_pro", "hellaswag".
+2. To switch between different models, change `model` in [run.sh](run.sh). Right now we only support llama3.1_8b, llama3.2_1b, llama3.2_3b, qwen3_0.6b, qwen3_1.7b.
+
+To run the code, please use the following cmd
 ```
 bash run.sh
 ```

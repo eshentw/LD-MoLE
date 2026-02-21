@@ -1,0 +1,51 @@
+defaults:
+  - _self_
+  - dataset: arc_c.yaml
+  - task: arc_c.yaml
+  - model: qwen3_0.6b.yaml
+  - hydra: default.yaml
+
+# Root directory for dataset, model outputs, and logs
+root_dir: "datasets"
+
+# Dataloader configurations
+batch_size: 16
+val_batch_size: 32
+num_workers: 8  # Number of workers for data loading
+
+# Hyperparameters
+max_steps: -1
+eval_steps: -1
+num_epochs: 10
+weight_decay: 0.1
+gradient_accumulation_steps: 1
+max_grad_norm: 1.0
+scheduler:  # MultiStepLR
+  milestones: [6, 8]
+  gamma: 0.1
+
+# Loss Weights
+ce_loss_coef: 1.0
+lb_loss_coef: 0.0
+rz_loss_coef: 0.0
+reg_loss_coef: 0.0
+lam_loss_coef: 0.0
+# Wandb configurations
+wandb:
+  name: ???
+  project: ???
+  entity: ???
+  tags: [???]
+
+save: True
+
+# GPU
+num_nodes: 1
+gpu: 1
+dist_backend: ???
+
+load_pretrained: True # base model
+load_lora_pretrained: False # lora model
+
+# Logging
+log_grad_norm: False

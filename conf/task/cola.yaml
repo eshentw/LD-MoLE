@@ -1,0 +1,6 @@
+name: cola
+num_labels: 2
+learning_rate: 1e-4
+padding: longest
+monitor: val/accuracy
+max_seq_length: 512

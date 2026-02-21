@@ -1,0 +1,10 @@
+.vscode
+*__pycache__*
+datasets/
+lightning_logs/
+test*
+eval*
+wandb*
+slurm*
+# conf/
+dataset_playbook/

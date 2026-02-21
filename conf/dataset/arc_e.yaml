@@ -1,0 +1,6 @@
+name: arc_e
+root_dir: "datasets"
+overwrite_cache: False
+seed: 42
+ignore_index: -100
+tokenized_datasets_path: ???

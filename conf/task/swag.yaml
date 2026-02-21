@@ -1,0 +1,10 @@
+name: allenai/swag
+dataset_config: regular
+learning_rate: 1e-4
+label_smoothing: 0.1
+padding: longest
+monitor: val/mean_acc
+max_seq_length: 1024
+max_train_samples: ???
+max_val_samples: ???
+max_test_samples: ???

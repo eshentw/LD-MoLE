@@ -1,0 +1,4 @@
+name: glue
+root_dir: "datasets"
+overwrite_cache: False
+seed: 42

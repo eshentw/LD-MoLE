@@ -16,7 +16,7 @@ from dats import build_dataset
 from model import build_model
 from loss import build_loss
 from tools.callback import build_callback
-from tools.validator import build_validator, SingleTaskLMValidator, MultiTaskLMValidator
+from tools.validator import build_validator, SingleTaskLMValidator
 from tools.utils import trainable_parameter_cnt, update_cfg_for_ddp
 from peft import PeftModel, get_peft_model, LoraConfig
 from dats.datasets import format_source
@@ -246,26 +246,7 @@ class Finetuner(LightningModule):
 
     def validation_step(self, batch, batch_idx, dataloader_idx=None):
         results = {}
-        if isinstance(self.validator, MultiTaskLMValidator):
-            labels = torch.tensor(batch['target_id'], dtype=torch.long)
-            subject = batch['subject'] if 'subject' in batch else None
-            model_input = self.tokenizer(
-                [format_source(i, 
-                            self.model.config.model_type, 
-                            training=False) for i in batch['source']],
-                padding=True, return_tensors='pt', add_special_tokens=False)
-            batch = {k: v.to(self.model.device) for k, v in model_input.items()}
-            batch["labels"] = labels.to(self.model.device)
-            if subject is not None:
-                batch["subject"] = subject
-            loss, logits, all_hidden_states, all_attentions = self.forward(batch, batch_idx)
-            res = logits.detach()
-            if self.validator:
-                rank = dist.get_rank() if dist.is_available() and dist.is_initialized() else 0
-                preds = self.validator.evaluate(res, self.tokenizer, dataloader_idx)
-                results = self.validator.get_metrics(preds, labels, batch, rank, dataloader_idx)
-                self.validator.update_metrics(results, rank=rank)
-        elif isinstance(self.validator, SingleTaskLMValidator):
+        if isinstance(self.validator, SingleTaskLMValidator):
             loss, logits, all_hidden_states, all_attentions = self.forward(batch, batch_idx)
             labels = batch['labels']
             res = logits.detach()

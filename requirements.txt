@@ -1,4 +1,4 @@
---index-url https://download.pytorch.org/whl/cu124
+--extra-index-url https://download.pytorch.org/whl/cu124
 
 torch
 torchvision
@@ -6,6 +6,8 @@ torchaudio
 
 lightning==2.5.2
 evaluate==0.4.5
+pyarrow<21
+fsspec<2024.0.0
 matplotlib
 transformers==4.53.2
 wandb

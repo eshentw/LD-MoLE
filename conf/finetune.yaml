@@ -32,17 +32,17 @@ reg_loss_coef: 0.0
 lam_loss_coef: 0.0
 # Wandb configurations
 wandb:
-  name: ???
-  project: ???
-  entity: ???
-  tags: [???]
+  name: null
+  project: "ld-mole"
+  entity: null
+  tags: []
 
 save: True
 
 # GPU
 num_nodes: 1
 gpu: 1
-dist_backend: ???
+dist_backend: "nccl"
 
 load_pretrained: True # base model
 load_lora_pretrained: False # lora model

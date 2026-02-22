@@ -32,18 +32,6 @@ pip install --pre torch torchvision torchaudio pytorch-triton \
     --index-url https://download.pytorch.org/whl/nightly/cu128
 ```
 
-Validate the environment:
-
-```bash
-python - <<'PY'
-import torch, datasets, pyarrow
-print("torch:", torch.__version__)
-print("cuda available:", torch.cuda.is_available())
-print("datasets:", datasets.__version__)
-print("pyarrow:", pyarrow.__version__)
-PY
-```
-
 # Datasets
 ## [ARC](https://huggingface.co/datasets/allenai/ai2_arc)
 ## [CommonsenseQA](https://huggingface.co/datasets/tau/commonsense_qa)

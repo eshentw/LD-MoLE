@@ -4,41 +4,44 @@ LD-MoLE, a learnable dynamic routing framework for Mixture of LoRA Experts that 
 
 # Get Start
 
-# Setting Up a uv Environment (Python 3.9)
+## Environment Setup (Conda, Python 3.10)
 
-This guide explains how to create a Python 3.9 virtual environment using `uv` and install dependencies from `requirements.txt`.
+Create and activate the environment:
 
----
-
-## 1. Install uv
-
-If you do not already have `uv` installed:
-
-### macOS / Linux
 ```bash
-curl -Ls https://astral.sh/uv/install.sh | sh
-```
-or via pip
-```
-pip install uv
+conda create -n LD-MoLE python=3.10
+conda activate LD-MoLE
 ```
 
-## 2. Create a Python 3.9 Virtual Environment
+Install PyTorch (stable CUDA 12.4):
 
-```
-uv venv --python 3.9
-```
-
-## 3. Activate the Virtual Environment
-
-```
-source .venv/bin/activate
+```bash
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
 ```
 
-## 4. Install Dependencies
+Install project dependencies:
 
+```bash
+pip install -r requirements.txt
 ```
-uv pip install -r requirements.txt
+
+Optional nightly PyTorch (CUDA 12.8), if you want nightly instead of stable:
+
+```bash
+pip install --pre torch torchvision torchaudio pytorch-triton \
+    --index-url https://download.pytorch.org/whl/nightly/cu128
+```
+
+Validate the environment:
+
+```bash
+python - <<'PY'
+import torch, datasets, pyarrow
+print("torch:", torch.__version__)
+print("cuda available:", torch.cuda.is_available())
+print("datasets:", datasets.__version__)
+print("pyarrow:", pyarrow.__version__)
+PY
 ```
 
 # Datasets

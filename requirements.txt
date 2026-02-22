@@ -1,16 +1,12 @@
---extra-index-url https://download.pytorch.org/whl/cu124
-
-torch
-torchvision
-torchaudio
+# Install PyTorch separately with the desired CUDA wheel index.
+# Example (stable CUDA 12.4):
+# pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
 
 lightning==2.5.2
 evaluate==0.4.5
-pyarrow<21
-fsspec<2024.0.0
-matplotlib
 transformers==4.53.2
 wandb
 hydra-core
 scikit-learn
 accelerate
+matplotlib

@@ -114,6 +114,7 @@ class Finetuner(LightningModule):
         if self.sparsegen==True:
             optimizer = torch.optim.AdamW([
                 {'params': self.regular_params, 'lr': self.lr},
+                {'params': self.sparsegen_params, 'lr': self.lr, 'name': 'sparsegen_params'}
             ], weight_decay=self.weight_decay)
 
             scheduler = torch.optim.lr_scheduler.MultiStepLR(

@@ -1,6 +1,30 @@
 # LD-MoLE(ICLR 2026)
+
+[![arXiv](https://img.shields.io/badge/arXiv-2509.25684-b31b1b.svg)](https://arxiv.org/abs/2509.25684)
+
 <img src="imgs/framework.png" alt="framework" width="720" />
+
 LD-MoLE, a learnable dynamic routing framework for Mixture of LoRA Experts that replaces conventional non-differentiable Top-K routing with a Sparsegen-based differentiable routing mechanism. The approach employs a shared MLP to predict token-specific and layer-wise sparsity parameters (λ), enabling adaptive and flexible expert allocation. Additionally, an analytical sparsity control objective is incorporated to regularize expert activation and encourage efficient expert utilization.
+
+## Paper
+
+📄 **[LD-MoLE: Learnable Dynamic Routing for Mixture of LoRA Experts](https://arxiv.org/abs/2509.25684)**
+
+## Citation
+
+If you find this work useful, please cite our paper:
+
+```bibtex
+@misc{zhuang2026ldmolelearnabledynamicrouting,
+      title={LD-MoLE: Learnable Dynamic Routing for Mixture of LoRA Experts}, 
+      author={Yuan Zhuang and Yi Shen and Yuexin Bian and Qing Su and Shihao Ji and Yuanyuan Shi and Fei Miao},
+      year={2026},
+      eprint={2509.25684},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2509.25684}, 
+}
+```
 
 # Get Start
 
